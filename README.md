@@ -114,7 +114,11 @@ CUDA_VISIBLE_DEVICES=0 python3 scripts/pretrain_entmax_roberta_512_marcos.py \
     --cls_size 2 \
     --top_clusters 2 \
     --bucket_size 16 \
-    --finetune_part "all_but_projections" \
-    --output_dir "outputs/mlm_sparsefinder_kmeans_16s_11w/"
+    --finetune_part all_but_projections \
+    --output_dir outputs/mlm_sparsefinder_kmeans_16s_11w/
 ```
+
+### Notes
+
+Some scripts might break when trying to save a model/centroid/output if the saving path does not exist. In that case, just create all required folders manually with `mkdir`.
 
