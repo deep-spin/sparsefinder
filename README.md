@@ -62,9 +62,9 @@ This will create a file called `qk-mlm_enc-attn.pt` containing the following inf
 
 ## 3. Learn projections (and clusters, optionally)
 
-Train a projection model. This is the core of the Sparsefinder: projections to a smaller space, which is quantized and then queries and keys falling in the same quantization interval are mapped to the same bucket. 
+This is the core of the Sparsefinder: learn projections to a smaller space, which are quantized and then queries and keys falling in the same quantization interval are mapped to the same bucket. 
 
-The model is trained with `quantization.py`. It accepts a myriad of hyperparameters; Use `--help` to see all of them. The experiments however have shown minimal impact of most of them, as well as of introducing a hidden layer.
+The model is trained with `quantization.py`. It accepts a myriad of hyperparameters; Use `--help` to see all of them. The experiments however have shown minimal impact of most of them, as well as of introducing a hidden layer. I recommend sticking with the hyperparams shown below.
 
 NB: the code in `quantization.py` may mention "hashing rounds" and "number of projections" interchangeably; the terminology here is not set on stone.
 
@@ -133,5 +133,5 @@ CUDA_VISIBLE_DEVICES=0 python3 scripts/pretrain_entmax_roberta_512_marcos.py \
 
 Some scripts might break when trying to save a model/centroid/output if the saving path does not exist. In that case, just create all required folders manually with `mkdir`.
 
-Some parts of the code might reference to something called `extender`, which is actually an old name we had for `sparsefinder`.
+Some parts of the code may reference to something called "extender", which is actually an old name we had for "sparsefinder".
 
